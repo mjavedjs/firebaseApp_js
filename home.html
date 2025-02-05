@@ -3,44 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App</title>
-    <link rel="stylesheet" href="home.css">
+    <title>Todo App by Javed</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            flex-direction:column;
+            height: 100vh;
+           
+        }
+
+        /* Container */
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        label {
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        /* Button */
+        button {
+            background: #27ae60;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #219150;
+            transform: scale(1.05);
+        }
+
+        /* Task List */
+        .task-list {
+            margin-top: 20px;
+        }
+
+        .task-list h2 {
+            font-size: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .task-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: left;
+        }
+        /* Table Styling */
+/* Table Styling */
+#table {
+    width:100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    text-align:center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#table th, #table td {
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    color: white;
+}
+
+#table th {
+    /* background-color: #2c3e50; */
+    color: #ecf0f1;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#table td {
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    transition: all 0.3s ease;
+}
+
+
+#table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+#table td button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#table td button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+#table td button.update-btn {
+    background-color: #27ae60;
+}
+
+#table td button.update-btn:hover {
+    background-color: #2ecc71;
+}
+#logout{
+   margin:10px;
+   background-color:red;
+}
+    </style>
 </head>
 <body>
-    <header>
-        <h1 class="logo">Todo App</h1>
-    </header>
+    <div class="logoutBtn">
+        <button id="logout" >LOGOUT</button>
+    </div>
+    <div class="container">
+        <h1>Todo App</h1>
+        <form id="todo-form">
+            <label for="title">Task Title:</label>
+            <input type="text" id="title" name="title"   id="title" placeholder="Enter task title" required>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Organize Your Tasks Effortlessly</h2>
-            <p>Stay on top of your tasks with our intuitive and easy-to-use Todo App. Manage your daily work, set priorities, and never miss a deadline!</p>
-            <button id="started">Get Started</button>
-        </div>
-    </section>
+            <label for="description">Task Description:</label>
+            <textarea id="description" name="description" id = 'description' placeholder="Enter task details" required></textarea>
+            <button type="submit">Add Task</button>
 
-    <section class="features">
-        <h2>Why Choose Our Todo App?</h2>
-        <div class="feature-cards">
-            <div class="feature-card">
-                <h3>📅 Task Management</h3>
-                <p>Create, edit, and organize tasks efficiently.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🔔 Smart Reminders</h3>
-                <p>Get notified about your upcoming tasks.</p>
-            </div>
-            <div class="feature-card">
-                <h3>📊 Progress Tracking</h3>
-                <p>Track your productivity with progress insights.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2025 Todo App by Javed | All Rights Reserved</p>
-    </footer>
-
-    <script type="module" src="home.js"></script>
+        </form>
+    </div>
+    <div>
+        <table id="table" class="table">
+            <th>title</th>
+            <th>description</th>
+        </table>
+    </div>
+ 
+    <script type="module" src="./app.js"></script>
 </body>
 </html>
