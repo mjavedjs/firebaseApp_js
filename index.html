@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App by Javed</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            flex-direction:column;
+            height: 100vh;
+           
+        }
+
+        /* Container */
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        label {
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        /* Button */
+        button {
+            background: #27ae60;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #219150;
+            transform: scale(1.05);
+        }
+
+        /* Task List */
+        .task-list {
+            margin-top: 20px;
+        }
+
+        .task-list h2 {
+            font-size: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .task-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: left;
+        }
+        /* Table Styling */
+/* Table Styling */
+#table {
+    width:150%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    text-align:center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#table th, #table td {
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    color: white;
+}
+
+#table th {
+    /* background-color: #2c3e50; */
+    color: #ecf0f1;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#table td {
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    transition: all 0.3s ease;
+}
+
+#table tr:nth-child(even) td {
+    /* background-color: rgba(255, 255, 255, 0.15); */
+}
+
+#table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+#table td button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#table td button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+#table td button.update-btn {
+    background-color: #27ae60;
+}
+
+#table td button.update-btn:hover {
+    background-color: #2ecc71;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo App</h1>
+        <form id="todo-form">
+            <label for="title">Task Title:</label>
+            <input type="text" id="title" name="title"   id="title" placeholder="Enter task title" required>
+
+            <label for="description">Task Description:</label>
+            <textarea id="description" name="description" id = 'description' placeholder="Enter task details" required></textarea>
+            <button type="submit">Add Task</button>
+
+        </form>
+    </div>
+    <div>
+        <table id="table" class="table">
+            <th>title</th>
+            <th>description</th>
+        </table>
+    </div>
+ 
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
