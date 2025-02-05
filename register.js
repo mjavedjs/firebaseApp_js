@@ -13,7 +13,7 @@ form.addEventListener("submit", (e) => {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log("User registered successfully:", user.uid);
-            window.location = 'index.html'
+            window.location = 'home.html'
         })
         .catch((error) => {
             console.error("Error:", error.message);

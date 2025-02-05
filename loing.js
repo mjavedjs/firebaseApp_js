@@ -14,7 +14,7 @@ form.addEventListener("submit", (e) => {
             const user = userCredential.user;
             console.log("User login  successfully:", user.uid);
             window.location = 'home.html'
-            
+                
         })
         .catch((error) => {
             console.error("Error:", error.message);
