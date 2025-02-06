@@ -13,7 +13,8 @@ form.addEventListener("submit", (e) => {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log("User registered successfully:", user.uid);
-            window.location = 'home.html'
+            alert("Signup successful! Redirecting to login page...");
+            window.location = 'login.html'
         })
         .catch((error) => {
             console.error("Error:", error.message);

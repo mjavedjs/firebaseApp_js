@@ -13,6 +13,7 @@ form.addEventListener("submit", (e) => {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log("User login  successfully:", user.uid);
+            alert("Login successful! Redirecting to home page...");
             window.location = 'home.html'
                 
         })
